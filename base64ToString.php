@@ -8,8 +8,7 @@ if ($handle) {
                 preg_match_all('/base64_decode\((.*?)\)/',substr($line,3),$matches);
                 $target = $matches[1];
                 for($i=0;$i<count($matches[1]);$i++) {
-                        $aux = str_replace('"','',$target[$i]);
-                        $aux2 = base64_decode($aux);
+                        $aux2 = base64_decode($target[$i]);
                         $line = str_replace($matches[0][$i],$aux2,$line);
                 }
         }
